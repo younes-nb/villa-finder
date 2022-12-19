@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Vazir";
+  src: url("assets/fonts/Vazir.eot"),
+  url("assets/fonts/Vazir.eot?#iefix") format("embedded-opentype"),
+  url("assets/fonts/Vazir.woff2") format("woff2"),
+  url("assets/fonts/Vazir.woff") format("woff"),
+  url("assets/fonts/Vazir.ttf") format("truetype");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Vazir, serif;
+}
+
+a {
+  color: black !important;
+  text-decoration: none !important;
+}
+
+ul {
+  list-style-type: none !important;
+}
