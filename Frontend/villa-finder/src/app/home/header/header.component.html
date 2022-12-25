@@ -1,13 +1,36 @@
-<div id="carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-  <div class="carousel-inner h-100">
-    <div class="carousel-item active h-100" data-bs-interval="5000">
-      <img src="../../../assets/images/1.jpg" class="d-block w-100 h-100" alt="...">
-    </div>
-    <div class="carousel-item h-100" data-bs-interval="5000">
-      <img src="../../../assets/images/2.jpg" class="d-block w-100 h-100" alt="...">
-    </div>
-    <div class="carousel-item h-100" data-bs-interval="5000">
-      <img src="../../../assets/images/3.jpg" class="d-block w-100 h-100" alt="...">
+<header>
+  <div id="carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner h-100">
+      <div class="carousel-item active h-100" data-bs-interval="5000">
+        <img src="../../../assets/images/1.jpg" class="d-block w-100 h-100" alt="...">
+      </div>
+      <div class="carousel-item h-100" data-bs-interval="5000">
+        <img src="../../../assets/images/2.jpg" class="d-block w-100 h-100" alt="...">
+      </div>
+      <div class="carousel-item h-100" data-bs-interval="5000">
+        <img src="../../../assets/images/3.jpg" class="d-block w-100 h-100" alt="...">
+      </div>
     </div>
   </div>
-</div>
+  <div id="form-container" class="p-3 bg-light position-absolute top-100 start-50 translate-middle shadow rounded">
+    <form class="d-flex justify-content-between align-items-center">
+      <ngx-slider class="w-75" [(value)]="minRentValue" [(highValue)]="maxRentValue"
+                  [options]="sliderOptions" title="محدوده قیمت"></ngx-slider>
+      <mat-form-field class="mx-5" title="انتخاب شهر">
+        <mat-label>شهر</mat-label>
+        <input type="text"
+               placeholder="شهر را انتخاب کنید"
+               aria-label="شهر"
+               matInput
+               [formControl]="cityFormControl"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let city of filteredCities | async" [value]="city">
+            {{city}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <button id="search-btn" class="h-100" mat-raised-button color="primary">جستجو</button>
+    </form>
+  </div>
+</header>

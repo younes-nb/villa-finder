@@ -2,4 +2,22 @@
   z-index: 100;
   position: absolute;
   top: 0;
+
+  .nav-item {
+    padding-left: 1rem;
+
+    a {
+      color: rgba(255, 255, 255, 0.8) !important;
+      transition: .5s color;
+      padding: 0;
+
+      &:hover {
+        color: white !important;
+      }
+    }
+  }
+
+  .active {
+    color: white !important;
+  }
 }
