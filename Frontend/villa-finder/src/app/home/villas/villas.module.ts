@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {VillasService} from "./villas.service";
 import {VillasComponent} from "./villas.component";
 import {VillaComponent} from "./villa/villa.component";
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -10,6 +11,7 @@ import {VillaComponent} from "./villa/villa.component";
   providers: [VillasService],
   imports: [
     CommonModule,
+    MatPaginatorModule
   ],
   exports: [VillasComponent]
 })

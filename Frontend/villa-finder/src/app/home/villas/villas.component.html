@@ -1,7 +1,16 @@
 <div class="container">
   <ul class="row gy-5 gx-5">
-    <ng-container *ngFor="let villa of villas">
+    <ng-container *ngFor="let villa of pageSlice">
       <app-villa class="col-4" [villa]="villa"></app-villa>
     </ng-container>
+    <div class="d-flex justify-content-center">
+      <mat-paginator
+                     [length]="villas.length"
+                     [pageSize]="9"
+                     [pageSizeOptions]="[3, 6, 9, 12, 15]"
+                     [showFirstLastButtons]="true"
+                     (page)="onPageChange($event)">
+      </mat-paginator>
+    </div>
   </ul>
 </div>
