@@ -9,11 +9,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {NgxSliderModule} from "@angular-slider/ngx-slider";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {MatAutocompleteModule} from "@angular/material/autocomplete";
-import {MatInputModule} from "@angular/material/input";
-import {MatButtonModule} from "@angular/material/button";
+import {MatLegacyAutocompleteModule as MatAutocompleteModule} from "@angular/material/legacy-autocomplete";
+import {MatLegacyInputModule as MatInputModule} from "@angular/material/legacy-input";
+import {MatLegacyButtonModule as MatButtonModule} from "@angular/material/legacy-button";
 import {VillasModule} from "./home/villas/villas.module";
 import { FooterComponent } from './footer/footer.component';
+import {FontAwesomeModule, FaIconLibrary} from "@fortawesome/angular-fontawesome";
+import {faGithub, faTelegram, faInstagram, faLinkedin} from "@fortawesome/free-brands-svg-icons"
 
 @NgModule({
   declarations: [
@@ -35,9 +37,13 @@ import { FooterComponent } from './footer/footer.component';
     ReactiveFormsModule,
     MatButtonModule,
     VillasModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(faGithub, faTelegram, faInstagram, faLinkedin);
+  }
 }

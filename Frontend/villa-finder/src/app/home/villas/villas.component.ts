@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {VillasService} from "./villas.service";
 import {Villa} from "../../../types/villa";
-import {MatPaginator, PageEvent} from "@angular/material/paginator";
+import {MatLegacyPaginator as MatPaginator, LegacyPageEvent as PageEvent} from "@angular/material/legacy-paginator";
 import {AppService} from "../../app.service";
 
 @Component({

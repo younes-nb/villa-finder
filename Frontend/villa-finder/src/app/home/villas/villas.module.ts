@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {VillasService} from "./villas.service";
 import {VillasComponent} from "./villas.component";
 import {VillaComponent} from "./villa/villa.component";
-import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatLegacyPaginatorModule as MatPaginatorModule} from '@angular/material/legacy-paginator';
 import {RouterLink} from "@angular/router";
 
 
