@@ -1,6 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Villa} from "../../../../types/villa";
 import {AppService} from "../../../app.service";
+import {ActivatedRoute} from "@angular/router";
+import {VillasService} from "../villas.service";
 
 @Component({
   selector: 'app-villa',
@@ -8,13 +10,20 @@ import {AppService} from "../../../app.service";
   styleUrls: ['./villa.component.scss']
 })
 export class VillaComponent implements OnInit {
-  @Input() villa: Villa = {} as Villa;
+  villa!: Villa;
+  villaId!: number;
 
-  constructor(private appService: AppService) {
-    this.appService = appService;
+  constructor(private appService: AppService, private route: ActivatedRoute, private villasService: VillasService) {
   }
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => this.villaId = params['id']);
+    this.villasService.getVilla(this.villaId.toString()).subscribe(result => {
+      this.villa = result;
+    });
   }
 
+  numLatinToFa(n: number) {
+    return this.appService.numLatinToFa(n.toString());
+  }
 }

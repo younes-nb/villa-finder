@@ -1,0 +1,8 @@
+<mat-paginator
+  class="mt-5 mb-4 border-1 rounded shadow"
+  [length]="villas.length"
+  [pageSize]=pageSize
+  [pageSizeOptions]=pageSizeOptions
+  [showFirstLastButtons]=showFirstLastButtons
+  (page)="onPageChange($event)">
+</mat-paginator>

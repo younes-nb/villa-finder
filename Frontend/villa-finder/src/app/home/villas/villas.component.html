@@ -1,33 +1,13 @@
-<div id="villas-container">
+<section id="villas-container">
   <div class="container">
-    <ul class="row gy-5 gx-5">
-      <ng-container *ngFor="let villa of pageSlice">
-        <div class="col-4">
-          <article class="villa-card card shadow">
-            <ng-container *ngIf="villa.images.length">
-              <img class="card-img-top" [src]="villa.images[0]" alt="">
-            </ng-container>
-            <div class="card-body">
-              <h5 class="card-title mb-4">{{villa.title}}</h5>
-              <div class="mb-3 d-flex justify-content-between">
-                <h6 class="card-subtitle text-muted">{{villa.city}}</h6>
-                <h6 class="card-subtitle text-muted">{{numLatinToFa(villa.price)}} تومان</h6>
-              </div>
-              <p class="card-text">{{villa.details | slice:0:128}}...</p>
-            </div>
-          </article>
-        </div>
-      </ng-container>
-    </ul>
-    <div class="d-flex justify-content-center">
-      <mat-paginator
-        class="mt-5 mb-4 p-1 border-1 rounded shadow"
-        [length]="villas.length"
-        [pageSize]="9"
-        [pageSizeOptions]="[3, 6, 9, 12, 15]"
-        [showFirstLastButtons]="true"
-        (page)="onPageChange($event)">
-      </mat-paginator>
-    </div>
+    <ng-container *ngIf="villas; else empty">
+      <ul class="row gy-5 gx-5">
+        <app-villa-card *ngFor="let villa of pageSlice" [villa]="villa" class="col-4"></app-villa-card>
+      </ul>
+      <div class="d-flex justify-content-center">
+        <app-paginator [villas]="villas" (pageChanged)="onPageChange($event)"></app-paginator>
+      </div>
+    </ng-container>
+    <ng-template #empty>ویلایی موجود نیست.</ng-template>
   </div>
-</div>
+</section>

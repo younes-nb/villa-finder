@@ -3,18 +3,21 @@ import {CommonModule} from '@angular/common';
 import {VillasService} from "./villas.service";
 import {VillasComponent} from "./villas.component";
 import {VillaComponent} from "./villa/villa.component";
-import {MatLegacyPaginatorModule as MatPaginatorModule} from '@angular/material/legacy-paginator';
 import {RouterLink} from "@angular/router";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {PaginatorModule} from "./paginator/paginator.module";
+import {VillaCardComponent} from './villa-card/villa-card.component';
 
 
 @NgModule({
-  declarations: [VillasComponent, VillaComponent],
+  declarations: [VillasComponent, VillaComponent, VillaCardComponent],
   providers: [VillasService],
-    imports: [
-        CommonModule,
-        MatPaginatorModule,
-        RouterLink
-    ],
+  imports: [
+    CommonModule,
+    MatPaginatorModule,
+    RouterLink,
+    PaginatorModule
+  ],
   exports: [VillasComponent]
 })
 export class VillasModule {

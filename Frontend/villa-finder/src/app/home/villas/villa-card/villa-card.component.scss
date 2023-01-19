@@ -1,0 +1,8 @@
+.villa-card {
+  cursor: pointer;
+  transition: all .5s;
+
+  &:hover {
+    transform: translate(0, -3px);
+  }
+}
