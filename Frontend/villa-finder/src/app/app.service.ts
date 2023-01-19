@@ -1,14 +1,11 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
 
-  constructor() { }
-
-  numLatinToFa(n: string){
-    // @ts-ignore
-    return n.replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
+  numLatinToFa(n: string) {
+    return n.replace(/\d/g, (d: string) => "۰۱۲۳۴۵۶۷۸۹"[parseInt(d)]);
   }
 }

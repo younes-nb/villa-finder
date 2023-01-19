@@ -1,23 +1,22 @@
 @use '@angular/material' as mat;
 
-@include mat.all-legacy-component-typographies();
-@include mat.legacy-core();
-
+@include mat.core();
 
 $villa-finder-primary: mat.define-palette(mat.$teal-palette);
 $villa-finder-accent: mat.define-palette(mat.$teal-palette, A200, A100, A400);
 $villa-finder-warn: mat.define-palette(mat.$red-palette);
-
 
 $villa-finder-theme: mat.define-light-theme((
   color: (
     primary: $villa-finder-primary,
     accent: $villa-finder-accent,
     warn: $villa-finder-warn,
-  )
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
 ));
 
-@include mat.all-legacy-component-themes($villa-finder-theme);
+@include mat.all-component-themes($villa-finder-theme);
 
 @font-face {
   font-family: "Vazir";
