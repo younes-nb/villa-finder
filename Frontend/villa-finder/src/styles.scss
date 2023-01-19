@@ -1,24 +1,14 @@
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
-// Plus imports for other components in your app.
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
-@include mat.core();
+@include mat.all-legacy-component-typographies();
+@include mat.legacy-core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
+
 $villa-finder-primary: mat.define-palette(mat.$teal-palette);
 $villa-finder-accent: mat.define-palette(mat.$teal-palette, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
 $villa-finder-warn: mat.define-palette(mat.$red-palette);
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
+
 $villa-finder-theme: mat.define-light-theme((
   color: (
     primary: $villa-finder-primary,
@@ -27,10 +17,7 @@ $villa-finder-theme: mat.define-light-theme((
   )
 ));
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include mat.all-component-themes($villa-finder-theme);
+@include mat.all-legacy-component-themes($villa-finder-theme);
 
 @font-face {
   font-family: "Vazir";
@@ -39,6 +26,11 @@ $villa-finder-theme: mat.define-light-theme((
   url("assets/fonts/Vazir.woff2") format("woff2"),
   url("assets/fonts/Vazir.woff") format("woff"),
   url("assets/fonts/Vazir.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Pattaya";
+  src: url("assets/fonts/Pattaya.ttf") format("truetype");
 }
 
 * {
@@ -64,5 +56,16 @@ html, body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Vazir", Roboto, "Helvetica Neue", sans-serif;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  font-size: 2.5rem;
+  color: #00bfa5 !important;
+  font-family: "Pattaya", Roboto, "Helvetica Neue", sans-serif;
 }

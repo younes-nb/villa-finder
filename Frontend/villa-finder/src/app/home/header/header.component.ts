@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LabelType, Options} from "@angular-slider/ngx-slider";
 import {FormControl} from "@angular/forms";
 import {map, Observable, startWith} from "rxjs";
+import {AppService} from "../../app.service";
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,8 @@ export class HeaderComponent implements OnInit {
   cities = ["بابل", "ساری"];
   filteredCities: Observable<string[]> | undefined;
 
-  constructor() {
+  constructor(private appService: AppService) {
+    this.appService = appService;
   }
 
   ngOnInit(): void {
@@ -38,11 +40,11 @@ export class HeaderComponent implements OnInit {
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
-          return '<b>حداقل قیمت : </b>' + value;
+          return '<b>حداقل قیمت : </b>' + this.appService.numLatinToFa(value.toString());
         case LabelType.High:
-          return '<b>حداکثر قیمت : </b>' + value;
+          return '<b>حداکثر قیمت : </b>' + this.appService.numLatinToFa(value.toString());
         default:
-          return '' + value;
+          return '' + this.appService.numLatinToFa(value.toString());
       }
     }
   };
