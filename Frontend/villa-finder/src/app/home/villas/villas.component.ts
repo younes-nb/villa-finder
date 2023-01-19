@@ -43,4 +43,8 @@ export class VillasComponent implements OnInit {
     this.pageSlice = this.villas.slice(startIndex, endIndex);
   }
 
+  numLatinToFa(n: number){
+    return this.appService.numLatinToFa(n.toString());
+  }
+
 }

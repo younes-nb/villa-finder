@@ -17,8 +17,4 @@ export class VillaComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  numLatinToFa(n: number){
-    return this.appService.numLatinToFa(n.toString());
-  }
-
 }
