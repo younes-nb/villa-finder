@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LabelType, Options} from "@angular-slider/ngx-slider";
 import {FormControl} from "@angular/forms";
 import {map, Observable, startWith} from "rxjs";
-import {AppService} from "../../app.service";
+import {FormatText} from "../../shared/format-text.service";
 
 @Component({
   selector: 'app-header',
@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
     {value: '4+', viewValue: 'بیشتر از ۴'},
   ]
 
-  constructor(private appService: AppService) {
+  constructor(private appService: FormatText) {
     this.appService = appService;
   }
 

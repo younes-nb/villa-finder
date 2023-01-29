@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {VillasService} from "./villas.service";
-import {Villa} from "../../../types/villa";
+import {Villa} from "../../../../types/villa";
+import {VillasService} from "../villas.service";
 
 @Component({
-  selector: 'app-villas',
-  templateUrl: './villas.component.html',
-  styleUrls: ['./villas.component.scss']
+  selector: 'app-villas-list',
+  templateUrl: './villas-list.component.html',
+  styleUrls: ['./villas-list.component.scss']
 })
-export class VillasComponent implements OnInit {
+export class VillasListComponent implements OnInit {
   villas!: Villa[];
   pageSlice: Villa[] | undefined;
 

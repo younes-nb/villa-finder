@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {Villa} from "../../../../types/villa";
-import {AppService} from "../../../app.service";
+import {Villa} from "../../../types/villa";
+import {FormatText} from "../../shared/format-text.service";
 
 @Component({
   selector: 'app-villa-card',
@@ -10,7 +10,7 @@ import {AppService} from "../../../app.service";
 export class VillaCardComponent {
   @Input() villa: Villa = {} as Villa;
 
-  constructor(private appService: AppService) {
+  constructor(private appService: FormatText) {
   }
 
   numLatinToFa(n: number) {
