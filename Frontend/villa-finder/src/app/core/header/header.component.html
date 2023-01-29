@@ -1,0 +1,63 @@
+<header>
+  <div id="carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner h-100">
+      <div class="carousel-item active h-100" data-bs-interval="5000">
+        <img src="../../../assets/images/1.jpg" class="d-block w-100 h-100" alt="...">
+      </div>
+      <div class="carousel-item h-100" data-bs-interval="5000">
+        <img src="../../../assets/images/2.jpg" class="d-block w-100 h-100" alt="...">
+      </div>
+      <div class="carousel-item h-100" data-bs-interval="5000">
+        <img src="../../../assets/images/3.jpg" class="d-block w-100 h-100" alt="...">
+      </div>
+    </div>
+  </div>
+  <div id="form-container" class="p-4 bg-light position-absolute top-100 start-50 translate-middle shadow rounded">
+    <form class="d-flex justify-content-between align-items-center">
+      <ngx-slider class="w-75 me-5"
+                  [(value)]="minRentValue"
+                  [(highValue)]="maxRentValue"
+                  [options]="sliderOptions"
+                  title="محدوده قیمت">
+      </ngx-slider>
+      <mat-form-field class="me-5" title="انتخاب استان">
+        <mat-label>استان</mat-label>
+        <input type="text"
+               aria-label="استان"
+               matInput
+               (change)="clearCityFilter()"
+               [formControl]="stateFormControl"
+               [matAutocomplete]="autoState">
+        <mat-autocomplete #autoState="matAutocomplete" (optionSelected)="getCities($event)">
+          <mat-option *ngFor="let state of filteredStates | async" [value]="state">
+            {{state}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <mat-form-field class="me-5" title="انتخاب شهر">
+        <mat-label>شهر</mat-label>
+        <input type="text"
+               aria-label="شهر"
+               matInput
+               [readonly]="!isCityEditable"
+               [(ngModel)]="cityInput"
+               [formControl]="cityFormControl"
+               [matAutocomplete]="autoCity">
+        <mat-autocomplete #autoCity="matAutocomplete">
+          <mat-option *ngFor="let city of filteredCities | async" [value]="city">
+            {{city}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <mat-form-field class="me-5" appearance="fill">
+        <mat-label>تعداد اتاق</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let bedroomsCountOption of bedroomsCountOptions" [value]="bedroomsCountOption.value">
+            {{bedroomsCountOption.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button id="search-btn" mat-raised-button color="primary">جستجو</button>
+    </form>
+  </div>
+</header>
