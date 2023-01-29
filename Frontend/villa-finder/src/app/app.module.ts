@@ -19,6 +19,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {HttpClientModule} from "@angular/common/http";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSelectModule} from "@angular/material/select";
+import {FormatTextService} from "./shared/format-text.service";
+import {LocationService} from "./shared/location.service";
 
 @NgModule({
   declarations: [
@@ -45,7 +47,7 @@ import {MatSelectModule} from "@angular/material/select";
     MatIconModule,
     MatSelectModule
   ],
-  providers: [],
+  providers: [FormatTextService, LocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

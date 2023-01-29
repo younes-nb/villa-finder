@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Villa} from "../../../types/villa";
-import {FormatText} from "../../shared/format-text.service";
+import {FormatTextService} from "../../shared/format-text.service";
 import {ActivatedRoute} from "@angular/router";
 import {VillasService} from "../shared/villas.service";
 
@@ -13,7 +13,7 @@ export class VillaComponent implements OnInit {
   villa!: Villa;
   villaId!: number;
 
-  constructor(private appService: FormatText, private route: ActivatedRoute, private villasService: VillasService) {
+  constructor(private appService: FormatTextService, private route: ActivatedRoute, private villasService: VillasService) {
   }
 
   ngOnInit(): void {

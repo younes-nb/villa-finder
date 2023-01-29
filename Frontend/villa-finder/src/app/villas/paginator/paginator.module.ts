@@ -2,7 +2,7 @@ import {Injectable, NgModule} from '@angular/core';
 import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
 import {Subject} from 'rxjs';
 import {PaginatorComponent} from "./paginator.component";
-import {FormatText} from "../../shared/format-text.service";
+import {FormatTextService} from "../../shared/format-text.service";
 
 @Injectable()
 export class MyCustomPaginatorIntl implements MatPaginatorIntl {
@@ -14,7 +14,7 @@ export class MyCustomPaginatorIntl implements MatPaginatorIntl {
   nextPageLabel = 'صفحه بعدی';
   previousPageLabel = 'صفحه قبلی';
 
-  constructor(private appService: FormatText) {
+  constructor(private appService: FormatTextService) {
   }
 
   getRangeLabel(page: number, pageSize: number, length: number): string {
