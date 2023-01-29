@@ -13,6 +13,13 @@ export class HeaderComponent implements OnInit {
   cityFormControl = new FormControl('');
   cities = ["بابل", "ساری"];
   filteredCities: Observable<string[]> | undefined;
+  bedroomsCountOptions = [
+    {value: '1', viewValue: '۱'},
+    {value: '2', viewValue: '۲'},
+    {value: '3', viewValue: '۳'},
+    {value: '4', viewValue: '۴'},
+    {value: '4+', viewValue: 'بیشتر از ۴'},
+  ]
 
   constructor(private appService: AppService) {
     this.appService = appService;

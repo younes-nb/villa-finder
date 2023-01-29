@@ -30,6 +30,14 @@
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
+      <mat-form-field class="me-5" appearance="fill">
+        <mat-label>تعداد اتاق</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let bedroomsCountOption of bedroomsCountOptions" [value]="bedroomsCountOption.value">
+            {{bedroomsCountOption.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
       <button id="search-btn" mat-raised-button color="primary">جستجو</button>
     </form>
   </div>
