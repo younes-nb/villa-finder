@@ -21,6 +21,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatSelectModule} from "@angular/material/select";
 import {FormatTextService} from "./shared/format-text.service";
 import {LocationService} from "./shared/location.service";
+import {LoadingBarHttpClientModule} from "@ngx-loading-bar/http-client";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {LocationService} from "./shared/location.service";
     FontAwesomeModule,
     HttpClientModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    LoadingBarHttpClientModule
   ],
   providers: [FormatTextService, LocationService],
   bootstrap: [AppComponent]
