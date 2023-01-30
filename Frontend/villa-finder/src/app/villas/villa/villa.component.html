@@ -1,1 +1,36 @@
-<p *ngIf="villa">villa #{{villa.id}} works</p>
+<app-navbar [theme]="'dark'"></app-navbar>
+<div style="height: 100px; overflow: hidden;margin-top: 10rem">
+  <svg
+    viewBox="0 0 500 150"
+    preserveAspectRatio="none"
+    style="height: 100%; width: 100%"
+  >
+    <path
+      d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+      style="stroke: none; fill: #fdfdfd"
+    ></path>
+  </svg>
+</div>
+<div class="bg-light-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+      </div>
+      <div class="col-6">
+        <app-gallery [imagesSrc]="villa.images"></app-gallery>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="height: 100px; overflow: hidden">
+  <svg
+    viewBox="0 0 500 150"
+    preserveAspectRatio="none"
+    style="height: 100%; width: 100%"
+  >
+    <path
+      d="M0.00,49.98 C149.99,150.00 271.49,-49.98 500.00,49.98 L500.00,0.00 L0.00,0.00 Z"
+      style="stroke: none; fill: #fdfdfd"
+    ></path>
+  </svg>
+</div>

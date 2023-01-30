@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@ngx-loading-bar/core": "^6.0.2",
+    "@ngx-loading-bar/router": "^6.0.2"
+  }
+}
