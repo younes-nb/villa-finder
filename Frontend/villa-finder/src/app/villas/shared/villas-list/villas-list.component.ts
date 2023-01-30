@@ -4,8 +4,7 @@ import {VillasService} from "../villas.service";
 
 @Component({
   selector: 'app-villas-list',
-  templateUrl: './villas-list.component.html',
-  styleUrls: ['./villas-list.component.scss']
+  templateUrl: './villas-list.component.html'
 })
 export class VillasListComponent implements OnInit {
   villas!: Villa[];

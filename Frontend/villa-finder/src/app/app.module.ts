@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {NavbarComponent} from './core/navbar/navbar.component';
 import {HomeComponent} from './core/home/home.component';
 import {HeaderComponent} from './core/header/header.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -12,7 +11,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {VillasModule} from "./villas/villas.module";
 import {FooterComponent} from './core/footer/footer.component';
 import {FontAwesomeModule, FaIconLibrary} from "@fortawesome/angular-fontawesome";
-import {faGithub, faTelegram, faInstagram, faLinkedin} from "@fortawesome/free-brands-svg-icons"
+import {faGithub, faTelegram, faInstagram, faLinkedin} from "@fortawesome/free-brands-svg-icons";
+import {faXmark} from "@fortawesome/free-solid-svg-icons"
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
@@ -22,11 +22,11 @@ import {MatSelectModule} from "@angular/material/select";
 import {FormatTextService} from "./shared/format-text.service";
 import {LocationService} from "./shared/location.service";
 import {LoadingBarHttpClientModule} from "@ngx-loading-bar/http-client";
+import {NavbarModule} from "./core/navbar/navbar.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     HomeComponent,
     HeaderComponent,
     FooterComponent
@@ -47,13 +47,14 @@ import {LoadingBarHttpClientModule} from "@ngx-loading-bar/http-client";
     HttpClientModule,
     MatIconModule,
     MatSelectModule,
-    LoadingBarHttpClientModule
+    LoadingBarHttpClientModule,
+    NavbarModule
   ],
   providers: [FormatTextService, LocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faGithub, faTelegram, faInstagram, faLinkedin);
+    library.addIcons(faGithub, faTelegram, faInstagram, faLinkedin, faXmark);
   }
 }

@@ -1,0 +1,80 @@
+@import "src/colors";
+
+@mixin icon-button {
+  border: none;
+
+  :hover {
+    color: $primary-color;
+  }
+
+  fa-icon {
+    transition: all 0.5s;
+  }
+}
+
+#gallery-container {
+
+  .thumbnail-image-container {
+    cursor: pointer;
+    border-radius: 11px;
+
+    .thumbnail-image {
+      border-radius: 10px;
+      transition: opacity 0.5s;
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
+
+  .selected {
+    border: 3px solid $primary-color;
+    opacity: .6;
+  }
+
+
+  #gallery {
+    #main-image {
+      cursor: pointer;
+    }
+  }
+
+  #lightbox-container {
+    background-color: rgba(0, 0, 0, .75);
+    z-index: 100;
+
+    #lightbox {
+      width: 30vw;
+
+      #close-btn {
+        @include icon-button;
+      }
+
+      #lightbox-image-container {
+        height: 60vh;
+
+        #previous-btn, #next-btn {
+          @include icon-button;
+          stroke: black;
+          top: 48%;
+          width: 50px;
+          height: 50px;
+          transition: all 0.5s;
+
+          &:hover {
+            stroke: $primary-color;
+          }
+        }
+
+        #previous-btn {
+          right: -4%;
+        }
+
+        #next-btn {
+          left: -4%;
+        }
+      }
+    }
+  }
+}
