@@ -1,5 +1,5 @@
 <app-navbar [theme]="'dark'"></app-navbar>
-<div style="height: 100px; overflow: hidden;margin-top: 10rem">
+<div style="height: 100px; overflow: hidden;margin-top: 8rem">
   <svg
     viewBox="0 0 500 150"
     preserveAspectRatio="none"
@@ -13,11 +13,45 @@
 </div>
 <div class="bg-light-gray">
   <div class="container">
-    <div class="row">
+    <header class="mb-5">
+      <h1>{{villa.title}}</h1>
+      <h5> مهمان {{villa.landLord}}</h5>
+    </header>
+    <div class="row gx-5">
       <div class="col-6">
+        <ul class="p-0 mb-5">
+          <li class="mb-3 fs-5">
+            <fa-icon class="pe-2 fs-6" [icon]="['fas','location-dot']"></fa-icon>
+            {{villa.state}}، {{villa.city}}
+          </li>
+          <li class="mb-3 fs-5">
+            <fa-icon class="pe-2 fs-6" [icon]="['fas','bed']"></fa-icon>
+            {{numLatinToFa(villa.bedrooms)}} اتاق خواب
+          </li>
+          <li class="mb-3 fs-5">
+            <fa-icon class="pe-2 fs-6" [icon]="['fas','money-bill']"></fa-icon>
+            {{numLatinToFa(villa.price)}} تومان <span class="text-muted fs-6">/هر شب</span>
+          </li>
+          <li class="mb-3 fs-5">
+            <fa-icon class="pe-2 fs-6" [icon]="['fas','phone']"></fa-icon>
+            <a [href]="'tel:'+villa.phone">{{phoneLatinToFa(villa.phone)}}</a>
+          </li>
+          <li class="mb-3 fs-5">
+            <fa-icon class="pe-2 fs-6" [icon]="['fas','envelope']"></fa-icon>
+            <a [href]="'mailto:'+villa.email">{{villa.email}}</a>
+          </li>
+        </ul>
+        <div class="mb-5">
+          <h3>توضیحات</h3>
+          <p>{{villa.details}}</p>
+        </div>
+        <div>
+          <h3 class="mb-4">موقعیت مکانی ویلا</h3>
+          <app-villa-map [coordinate]="coordinate"></app-villa-map>
+        </div>
       </div>
       <div class="col-6">
-        <app-gallery [imagesSrc]="villa.images"></app-gallery>
+        <app-gallery *ngIf="villa" [imagesSrc]="villa.images"></app-gallery>
       </div>
     </div>
   </div>

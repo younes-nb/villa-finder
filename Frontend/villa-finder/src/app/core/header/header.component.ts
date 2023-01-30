@@ -17,7 +17,6 @@ export class HeaderComponent implements OnInit {
   filteredStates: Observable<string[]> | undefined;
 
   cities!: string[];
-  cityInput: string = '';
   isCityEditable: boolean = false;
   citiesFormDisable: boolean = true;
   cityFormControl: FormControl = new FormControl('');
@@ -63,7 +62,7 @@ export class HeaderComponent implements OnInit {
   clearCityFilter() {
     this.isCityEditable = false;
     this.filteredCities = new Observable<string[]>();
-    this.cityInput = '';
+    this.cityFormControl.setValue('');
   }
 
   minRentValue: number = 1;

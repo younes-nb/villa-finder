@@ -12,7 +12,7 @@ import {VillasModule} from "./villas/villas.module";
 import {FooterComponent} from './core/footer/footer.component';
 import {FontAwesomeModule, FaIconLibrary} from "@fortawesome/angular-fontawesome";
 import {faGithub, faTelegram, faInstagram, faLinkedin} from "@fortawesome/free-brands-svg-icons";
-import {faXmark} from "@fortawesome/free-solid-svg-icons"
+import {faXmark, faLocationDot, faBed, faMoneyBill, faEnvelope, faPhone} from "@fortawesome/free-solid-svg-icons"
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
@@ -55,6 +55,6 @@ import {NavbarModule} from "./core/navbar/navbar.module";
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faGithub, faTelegram, faInstagram, faLinkedin, faXmark);
+    library.addIcons(faGithub, faTelegram, faInstagram, faLinkedin, faXmark, faLocationDot, faBed, faMoneyBill, faEnvelope, faPhone);
   }
 }

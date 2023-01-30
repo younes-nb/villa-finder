@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Image} from "../../../types/image";
+import {Image} from "../../../types";
 
 @Component({
   selector: 'app-gallery',
@@ -15,17 +15,19 @@ export class GalleryComponent implements OnInit {
   currentLightboxIndex: number = 0;
 
   ngOnInit(): void {
-    for (const imageSrc of this.imagesSrc) {
-      this.images.push({
-        src: imageSrc,
-        isSelectedInGallery: false,
-        isSelectedInLightbox: false
-      });
+    if(this.imagesSrc.length){
+      for (const imageSrc of this.imagesSrc) {
+        this.images.push({
+          src: imageSrc,
+          isSelectedInGallery: false,
+          isSelectedInLightbox: false
+        });
+      }
+      this.images[0].isSelectedInGallery = true;
+      this.images[0].isSelectedInLightbox = true;
+      this.galleryMainImage = this.images[0].src;
+      this.lightboxMainImage = this.images[0].src;
     }
-    this.images[0].isSelectedInGallery = true;
-    this.images[0].isSelectedInLightbox = true;
-    this.galleryMainImage = this.images[0].src;
-    this.lightboxMainImage = this.images[0].src;
   }
 
 

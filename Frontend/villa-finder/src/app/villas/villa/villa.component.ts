@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Villa} from "../../../types/villa";
 import {FormatTextService} from "../../shared/format-text.service";
 import {ActivatedRoute} from "@angular/router";
 import {VillasService} from "../shared/villas.service";
+import {Coordinate, Villa} from "../../../types";
 
 @Component({
   selector: 'app-villa',
@@ -12,18 +12,24 @@ import {VillasService} from "../shared/villas.service";
 export class VillaComponent implements OnInit {
   villa!: Villa;
   villaId!: number;
+  coordinate!: Coordinate;
 
-  constructor(private appService: FormatTextService, private route: ActivatedRoute, private villasService: VillasService) {
+  constructor(private formatTextService: FormatTextService, private route: ActivatedRoute, private villasService: VillasService) {
   }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => this.villaId = params['id']);
     this.villasService.getVilla(this.villaId.toString()).subscribe(result => {
       this.villa = result;
+      this.coordinate = {lat: result.latitude, lng: result.longitude};
     });
   }
 
   numLatinToFa(n: number) {
-    return this.appService.numLatinToFa(n.toString());
+    return this.formatTextService.numLatinToFa(n.toString());
+  }
+
+  phoneLatinToFa(phone: string) {
+    return this.formatTextService.numLatinToFa(phone.replace('+', '')) + '+';
   }
 }
