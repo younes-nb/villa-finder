@@ -9,7 +9,6 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {NgxSliderModule} from "@angular-slider/ngx-slider";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {VillasModule} from "./villas/villas.module";
-import {FooterComponent} from './core/footer/footer.component';
 import {FontAwesomeModule, FaIconLibrary} from "@fortawesome/angular-fontawesome";
 import {faGithub, faTelegram, faInstagram, faLinkedin} from "@fortawesome/free-brands-svg-icons";
 import {faXmark, faLocationDot, faBed, faMoneyBill, faEnvelope, faPhone} from "@fortawesome/free-solid-svg-icons"
@@ -23,14 +22,22 @@ import {FormatTextService} from "./shared/format-text.service";
 import {LocationService} from "./shared/location.service";
 import {LoadingBarHttpClientModule} from "@ngx-loading-bar/http-client";
 import {NavbarModule} from "./core/navbar/navbar.module";
+import {LoginComponent} from './core/auth/login/login.component';
+import {RegisterComponent} from './core/auth/register/register.component';
+import {ProfileComponent} from './landlord/profile/profile.component';
+import {HttpRequestInterceptor} from "./shared/http.interceptor";
+import {FooterModule} from "./core/footer/footer.module";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    HeaderComponent,
-    FooterComponent
-  ],
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        HeaderComponent,
+        LoginComponent,
+        RegisterComponent,
+        ProfileComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -48,10 +55,12 @@ import {NavbarModule} from "./core/navbar/navbar.module";
     MatIconModule,
     MatSelectModule,
     LoadingBarHttpClientModule,
-    NavbarModule
+    NavbarModule,
+    FooterModule,
+    MatCheckboxModule
   ],
-  providers: [FormatTextService, LocationService],
-  bootstrap: [AppComponent]
+    providers: [FormatTextService, LocationService, HttpRequestInterceptor],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
