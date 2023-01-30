@@ -43,7 +43,6 @@ export class RegisterComponent implements OnInit {
       this.registerForm.controls['password'].value,
     ).subscribe({
       next: () => {
-        alert('ثبت نام با موفقیت انجام شد.');
         this.router.navigate(['login']);
       },
       error: () => {

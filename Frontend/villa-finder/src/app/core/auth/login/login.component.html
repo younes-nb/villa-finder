@@ -1,1 +1,24 @@
-<p>login works!</p>
+<div id="auth-container" class="d-flex justify-content-center align-items-center flex-column h-100">
+  <form [formGroup]="loginForm"
+        (ngSubmit)="loginForm.valid && onSubmit()"
+        class="row gy-3 px-3 py-4 shadow rounded"
+        id="auth-form"
+  >
+    <h2 class="mb-5 text-center">ورود به حساب</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>نام کاربری</mat-label>
+      <input matInput formControlName="username" name="username" type="text" required>
+      <mat-error *ngIf="loginForm.get('username')?.hasError('required')">وارد کردن نام کاربری الزامی می باشد.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>رمز عبور</mat-label>
+      <input matInput formControlName="password" name="password" type="password" required>
+      <mat-icon matSuffix>password</mat-icon>
+      <mat-error *ngIf="loginForm.get('password')?.hasError('required')">وارد کردن رمز عبور الزامی می باشد.</mat-error>
+    </mat-form-field>
+    <div class="d-flex justify-content-center mt-4">
+      <button class="w-25" type="submit" mat-raised-button color="primary">ورود</button>
+    </div>
+  </form>
+</div>
