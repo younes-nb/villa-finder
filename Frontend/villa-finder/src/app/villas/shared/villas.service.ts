@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {Villa} from "../../../types/villa";
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {Villa} from "../../../types";
 
 @Injectable({
   providedIn: 'root'

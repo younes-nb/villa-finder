@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {Villa} from "../../../types/villa";
 import {FormatTextService} from "../../shared/format-text.service";
+import {Villa} from "../../../types";
 
 @Component({
   selector: 'app-villa-card',
@@ -10,10 +10,10 @@ import {FormatTextService} from "../../shared/format-text.service";
 export class VillaCardComponent {
   @Input() villa: Villa = {} as Villa;
 
-  constructor(private appService: FormatTextService) {
+  constructor(private formatTextService: FormatTextService) {
   }
 
   numLatinToFa(n: number) {
-    return this.appService.numLatinToFa(n.toString());
+    return this.formatTextService.numLatinToFa(n.toString());
   }
 }

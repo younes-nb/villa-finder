@@ -10,10 +10,12 @@ import { VillasListComponent } from './shared/villas-list/villas-list.component'
 import { GalleryComponent } from './gallery/gallery.component';
 import {NavbarModule} from "../core/navbar/navbar.module";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {GoogleMapsModule} from "@angular/google-maps";
+import { VillaMapComponent } from './villa-map/villa-map.component';
 
 
 @NgModule({
-  declarations: [VillaComponent, VillaCardComponent, VillasListComponent, GalleryComponent],
+  declarations: [VillaComponent, VillaCardComponent, VillasListComponent, GalleryComponent, VillaMapComponent],
   providers: [VillasService],
     imports: [
         CommonModule,
@@ -21,7 +23,8 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
         RouterLink,
         PaginatorModule,
         NavbarModule,
-        FontAwesomeModule
+        FontAwesomeModule,
+        GoogleMapsModule,
     ],
   exports: [VillasListComponent]
 })

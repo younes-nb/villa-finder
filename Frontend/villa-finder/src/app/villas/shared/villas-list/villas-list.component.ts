@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Villa} from "../../../../types/villa";
 import {VillasService} from "../villas.service";
+import {Villa} from "../../../../types";
 
 @Component({
   selector: 'app-villas-list',

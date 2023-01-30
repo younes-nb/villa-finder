@@ -40,7 +40,6 @@
                aria-label="شهر"
                matInput
                [readonly]="!isCityEditable"
-               [(ngModel)]="cityInput"
                [formControl]="cityFormControl"
                [matAutocomplete]="autoCity">
         <mat-autocomplete #autoCity="matAutocomplete">
