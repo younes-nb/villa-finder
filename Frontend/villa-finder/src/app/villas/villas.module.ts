@@ -12,6 +12,7 @@ import {NavbarModule} from "../core/navbar/navbar.module";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {GoogleMapsModule} from "@angular/google-maps";
 import { VillaMapComponent } from './villa-map/villa-map.component';
+import {FooterModule} from "../core/footer/footer.module";
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { VillaMapComponent } from './villa-map/villa-map.component';
         NavbarModule,
         FontAwesomeModule,
         GoogleMapsModule,
+        FooterModule,
     ],
   exports: [VillasListComponent]
 })

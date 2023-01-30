@@ -1,0 +1,74 @@
+<div id="auth-container" class="d-flex justify-content-center align-items-center flex-column h-100">
+  <form [formGroup]="registerForm"
+        (ngSubmit)="registerForm.valid && onSubmit()"
+        class="row gy-3 px-3 py-4 shadow rounded"
+        id="auth-form"
+  >
+    <h1 class="mb-5 text-center">فرم ثبت نام</h1>
+    <mat-form-field class="col-6" appearance="fill">
+      <mat-label>نام</mat-label>
+      <input matInput formControlName="firstName" name="firstName" type="text" required>
+      <mat-error *ngIf="registerForm.get('firstName')?.hasError('required')">وارد کردن نام الزامی می باشد.</mat-error>
+      <mat-error *ngIf="registerForm.get('firstName')?.hasError('maxlength')">حداکثر تعداد حروف مجاز ۳۰ می باشد.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="col-6" appearance="fill">
+      <mat-label>نام خانوادگی</mat-label>
+      <input matInput formControlName="lastName" name="lastName" type="text" required>
+      <mat-error *ngIf="registerForm.get('lastName')?.hasError('required')">وارد کردن نام خانوادگی الزامی می باشد.
+      </mat-error>
+      <mat-error *ngIf="registerForm.get('lastName')?.hasError('maxlength')">حداکثر تعداد حروف مجاز ۳۰ می باشد.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="col-6" appearance="fill">
+      <mat-label>نام کاربری</mat-label>
+      <input matInput formControlName="username" name="username" type="text" required>
+      <mat-error *ngIf="registerForm.get('username')?.hasError('required')">وارد کردن نام کاربری الزامی می باشد.
+      </mat-error>
+      <mat-error *ngIf="registerForm.get('username')?.hasError('maxlength')">حداکثر تعداد حروف مجاز ۳۰ می باشد.
+      </mat-error>
+      <mat-error *ngIf="registerForm.get('username')?.hasError('minlength')">حداقل تعداد حروف مجاز ۶ می باشد.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="col-6" appearance="fill">
+      <mat-label>شماره تلفن</mat-label>
+      <input matInput formControlName="phone" name="phone" type="tel" required>
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-error *ngIf="registerForm.get('phone')?.hasError('required')">وارد کردن شماره تلفن الزامی می باشد.
+      </mat-error>
+      <mat-error *ngIf="registerForm.get('phone')?.hasError('pattern')">شماره تلفن معتبر نیست.</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>ایمیل</mat-label>
+      <input matInput formControlName="email" name="email" type="email" required>
+      <mat-icon matSuffix>email</mat-icon>
+      <mat-error *ngIf="registerForm.get('email')?.hasError('required')">وارد کردن ایمیل الزامی می باشد.</mat-error>
+      <mat-error *ngIf="registerForm.get('email')?.hasError('email')">ایمیل معتبر نیست.</mat-error>
+    </mat-form-field>
+    <mat-form-field class="col-6" appearance="fill">
+      <mat-label>رمز عبور</mat-label>
+      <input matInput formControlName="password" name="password" type="password" required>
+      <mat-icon matSuffix>password</mat-icon>
+      <mat-error *ngIf="registerForm.get('password')?.hasError('required')">وارد کردن رمز عبور الزامی می باشد.
+      </mat-error>
+      <mat-error *ngIf="registerForm.get('password')?.hasError('pattern')">رمز عبور باید ترکیبی از حروف کوچک، حروف بزرگ
+        و
+        اعداد باشد و حداقل ۸ حرف باشد.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="col-6" appearance="fill">
+      <mat-label>تکرار رمز عبور</mat-label>
+      <input matInput formControlName="confirmPassword" name="confirmPassword" type="password"
+             pattern="{{registerForm.value.password}}" required>
+      <mat-icon matSuffix>password</mat-icon>
+      <mat-error *ngIf="confirmPasswordValidator(registerForm)">رمز عبور وارد شده متفاوت می باشد.</mat-error>
+    </mat-form-field>
+    <mat-checkbox class="mt-3" formControlName="acceptTerms">شرایط و قوانین سایت را می پذیرم.
+      <mat-error *ngIf="submitted && !registerForm.controls['acceptTerms'].value">پذیرش شرایط و قوانین الزامی می باشد.
+      </mat-error>
+    </mat-checkbox>
+    <div class="d-flex justify-content-center mt-4">
+      <button class="w-25" type="submit" (click)="submitted=true" mat-raised-button color="primary">ثبت نام</button>
+    </div>
+  </form>
+</div>
