@@ -12,11 +12,23 @@ export class VillasService {
   constructor(private http: HttpClient) {
   }
 
-  getVillas(): Observable<any> {
+  getAll(): Observable<any> {
     return this.http.get<Villa[]>(this.API_SERVER);
   }
 
-  getVilla(id: string): Observable<any> {
+  get(id: string): Observable<any> {
     return this.http.get<Villa>(`${this.API_SERVER}/${id}`);
+  }
+
+  create(data: any): Observable<any> {
+    return this.http.post(this.API_SERVER, data);
+  }
+
+  update(id: any, data: any): Observable<any> {
+    return this.http.put(`${this.API_SERVER}/${id}`, data);
+  }
+
+  delete(id: any): Observable<any> {
+    return this.http.delete(`${this.API_SERVER}/${id}`);
   }
 }

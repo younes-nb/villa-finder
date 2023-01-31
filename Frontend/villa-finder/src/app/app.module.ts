@@ -19,8 +19,8 @@ import {
   faEnvelope,
   faPhone,
   faPlus,
-  faPen,
-  faTrash
+  faTrash,
+  faEye
 } from "@fortawesome/free-solid-svg-icons"
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatInputModule} from "@angular/material/input";
@@ -86,8 +86,8 @@ export class AppModule {
       faEnvelope,
       faPhone,
       faPlus,
-      faPen,
-      faTrash
+      faTrash,
+      faEye
     );
   }
 }
