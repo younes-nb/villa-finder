@@ -14,7 +14,10 @@
 <div class="bg-light-gray">
   <div class="container">
     <h1 class="">پنل کاربری</h1>
-    <button class="fs-6 my-5" type="submit" mat-raised-button color="primary">+ افزودن ویلای جدید</button>
+    <button class="fs-6 my-5" mat-raised-button color="primary">
+      <fa-icon [icon]="['fas','plus']"></fa-icon>
+      افزودن ویلای جدید
+    </button>
     <div>
       <h3 class="">ویلاهای افزوده شده</h3>
       <app-villas-list [villas]="currentUser.villas" [isInProfile]="true"></app-villas-list>

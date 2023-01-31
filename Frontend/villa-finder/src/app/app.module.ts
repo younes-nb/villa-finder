@@ -11,7 +11,17 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {VillasModule} from "./villas/villas.module";
 import {FontAwesomeModule, FaIconLibrary} from "@fortawesome/angular-fontawesome";
 import {faGithub, faTelegram, faInstagram, faLinkedin} from "@fortawesome/free-brands-svg-icons";
-import {faXmark, faLocationDot, faBed, faMoneyBill, faEnvelope, faPhone} from "@fortawesome/free-solid-svg-icons"
+import {
+  faXmark,
+  faLocationDot,
+  faBed,
+  faMoneyBill,
+  faEnvelope,
+  faPhone,
+  faPlus,
+  faPen,
+  faTrash
+} from "@fortawesome/free-solid-svg-icons"
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
@@ -30,14 +40,14 @@ import {FooterModule} from "./core/footer/footer.module";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HomeComponent,
-        HeaderComponent,
-        LoginComponent,
-        RegisterComponent,
-        ProfileComponent
-    ],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    HeaderComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -59,11 +69,25 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     FooterModule,
     MatCheckboxModule
   ],
-    providers: [FormatTextService, LocationService, HttpRequestInterceptor],
-    bootstrap: [AppComponent]
+  providers: [FormatTextService, LocationService, HttpRequestInterceptor],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faGithub, faTelegram, faInstagram, faLinkedin, faXmark, faLocationDot, faBed, faMoneyBill, faEnvelope, faPhone);
+    library.addIcons(
+      faGithub,
+      faTelegram,
+      faInstagram,
+      faLinkedin,
+      faXmark,
+      faLocationDot,
+      faBed,
+      faMoneyBill,
+      faEnvelope,
+      faPhone,
+      faPlus,
+      faPen,
+      faTrash
+    );
   }
 }

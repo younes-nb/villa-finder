@@ -13,21 +13,23 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {GoogleMapsModule} from "@angular/google-maps";
 import { VillaMapComponent } from './villa-map/villa-map.component';
 import {FooterModule} from "../core/footer/footer.module";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
   declarations: [VillaComponent, VillaCardComponent, VillasListComponent, GalleryComponent, VillaMapComponent],
   providers: [VillasService],
-    imports: [
-        CommonModule,
-        MatPaginatorModule,
-        RouterLink,
-        PaginatorModule,
-        NavbarModule,
-        FontAwesomeModule,
-        GoogleMapsModule,
-        FooterModule,
-    ],
+  imports: [
+    CommonModule,
+    MatPaginatorModule,
+    RouterLink,
+    PaginatorModule,
+    NavbarModule,
+    FontAwesomeModule,
+    GoogleMapsModule,
+    FooterModule,
+    MatButtonModule,
+  ],
     exports: [VillasListComponent, VillaCardComponent]
 })
 export class VillasModule {

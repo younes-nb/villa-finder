@@ -12,8 +12,7 @@ const routes: Routes = [
   {path: 'villas/:id', component: VillaComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  // {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]}
-  {path: 'profile', component: ProfileComponent}
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]}
 ];
 
 @NgModule({
