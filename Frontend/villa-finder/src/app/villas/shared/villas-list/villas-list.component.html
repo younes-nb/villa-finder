@@ -2,7 +2,7 @@
   <div class="container">
     <ng-container *ngIf="villas; else empty">
       <ul class="row gy-5 gx-5">
-        <app-villa-card *ngFor="let villa of pageSlice" [villa]="villa" class="col-4"></app-villa-card>
+        <app-villa-card *ngFor="let villa of pageSlice" [villa]="villa" [isInProfile]="isInProfile" class="col-4"></app-villa-card>
       </ul>
       <div class="d-flex justify-content-center">
         <app-paginator [villas]="villas" (pageChanged)="onPageChange($event)"></app-paginator>

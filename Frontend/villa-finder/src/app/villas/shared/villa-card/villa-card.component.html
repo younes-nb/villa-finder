@@ -1,0 +1,31 @@
+<article [routerLink]="['villas/' + villa.id]" class="villa-card card shadow">
+  <!--  <img *ngIf="villa.images.length" class="card-img-top" [src]="villa.images[0]" alt="">-->
+  <div class="card-body">
+    <h5 class="card-title mb-4">{{villa.title}}</h5>
+    <div class="mb-3 d-flex justify-content-between">
+      <h6 class="card-subtitle text-muted">
+        <fa-icon class="pe-1 fs-6" [icon]="['fas','location-dot']"></fa-icon>
+        {{villa.state}}، {{villa.city}}
+      </h6>
+      <h6 class="card-subtitle text-muted">
+        <fa-icon class="pe-1 fs-6" [icon]="['fas','bed']"></fa-icon>
+        {{numLatinToFa(villa.bedrooms)}}
+      </h6>
+    </div>
+    <p class="card-text">{{villa.details | slice:0:128}}...</p>
+    <h5>
+      {{numLatinToFa(villa.price)}} تومان <span class="text-muted fs-6">/هر شب</span>
+    </h5>
+    <div *ngIf="isInProfile" class="d-flex mt-3">
+      <button class="me-3" mat-raised-button color="primary">
+        <fa-icon class="pe-1 fs-6" [icon]="['fas','pen']"></fa-icon>
+        ویرایش
+      </button>
+      <button class="" mat-raised-button color="warn">
+        <fa-icon class="pe-1 fs-6" [icon]="['fas','trash']"></fa-icon>
+        حذف
+      </button>
+    </div>
+  </div>
+</article>
+

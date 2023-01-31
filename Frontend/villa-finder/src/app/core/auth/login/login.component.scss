@@ -1,3 +1,14 @@
-#auth-form{
+@import "src/colors";
+
+#auth-form {
   width: 25vw !important;
+
+  #has-account {
+    font-size: .9rem;
+    transition: color .5s;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
 }

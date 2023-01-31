@@ -20,7 +20,11 @@
           <a class="nav-link">درباره ما</a>
         </li>
       </ul>
-      <div class="ms-auto nav-item"><a routerLink="/login">ورود</a></div>
+      <div *ngIf="!isLoggedIn" class="ms-auto nav-item"><a routerLink="/login">ورود به حساب</a></div>
+      <ul *ngIf="isLoggedIn" class="ms-auto">
+        <div class="nav-item"><a routerLink="/profile">{{currentUser.username}}</a></div>
+        <div class="nav-item"><a (click)="logout()">خروج از حساب</a></div>
+      </ul>
     </div>
   </div>
 </nav>

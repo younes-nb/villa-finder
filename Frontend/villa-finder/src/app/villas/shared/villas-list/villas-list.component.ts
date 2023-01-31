@@ -1,22 +1,32 @@
-import {Component, OnInit} from '@angular/core';
-import {VillasService} from "../villas.service";
+import {Component, Input, OnInit} from '@angular/core';
 import {Villa} from "../../../../types";
+import {VillasService} from "../villas.service";
 
 @Component({
   selector: 'app-villas-list',
   templateUrl: './villas-list.component.html'
 })
 export class VillasListComponent implements OnInit {
-  villas!: Villa[];
-  pageSlice: Villa[] | undefined;
+  @Input() villas: Villa[] = [];
+  @Input() isInProfile: boolean = false
+  pageSlice: Villa[] = this.villas;
 
   constructor(private villasService: VillasService) {
   }
 
   ngOnInit(): void {
+    if (this.villas.length === 0) {
+      this.villasService.getVillas().subscribe(result => {
+        this.villas = result;
+        this.pageSlice = this.villas.slice(0, 9);
+      });
+    }
+    this.pageSlice = this.villas.slice(0, 9)
+  }
+
+  getVillas() {
     this.villasService.getVillas().subscribe(result => {
       this.villas = result;
-      this.pageSlice = this.villas.slice(0, 9);
     });
   }
 

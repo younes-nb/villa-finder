@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {PageEvent} from "@angular/material/paginator";
-import {Villa} from "../../../types";
+import {Villa} from "../../../../types";
 
 
 @Component({

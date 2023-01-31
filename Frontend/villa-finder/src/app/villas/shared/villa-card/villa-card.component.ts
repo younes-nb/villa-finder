@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {FormatTextService} from "../../shared/format-text.service";
-import {Villa} from "../../../types";
+import {FormatTextService} from "../../../shared/format-text.service";
+import {Villa} from "../../../../types";
 
 @Component({
   selector: 'app-villa-card',
@@ -9,6 +9,7 @@ import {Villa} from "../../../types";
 })
 export class VillaCardComponent {
   @Input() villa: Villa = {} as Villa;
+  @Input() isInProfile: boolean = false;
 
   constructor(private formatTextService: FormatTextService) {
   }
