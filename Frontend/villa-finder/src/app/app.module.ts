@@ -24,7 +24,7 @@ import {LoadingBarHttpClientModule} from "@ngx-loading-bar/http-client";
 import {NavbarModule} from "./core/navbar/navbar.module";
 import {LoginComponent} from './core/auth/login/login.component';
 import {RegisterComponent} from './core/auth/register/register.component';
-import {ProfileComponent} from './landlord/profile/profile.component';
+import {ProfileComponent} from './users/profile/profile.component';
 import {HttpRequestInterceptor} from "./shared/http.interceptor";
 import {FooterModule} from "./core/footer/footer.module";
 import {MatCheckboxModule} from "@angular/material/checkbox";

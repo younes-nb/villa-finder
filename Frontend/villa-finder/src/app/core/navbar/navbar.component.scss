@@ -10,6 +10,7 @@
       color: rgba(255, 255, 255, 0.8) !important;
       transition: .5s color;
       padding: 0;
+
       &:hover {
         color: white !important;
       }
@@ -21,10 +22,10 @@
   }
 }
 
-.light{
+.light {
   background-color: transparent;
 }
 
-.dark{
+.dark {
   background-color: #252525;
 }

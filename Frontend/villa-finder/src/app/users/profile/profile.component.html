@@ -1,9 +1,5 @@
-<app-navbar [theme]="'light'"></app-navbar>
-<app-header></app-header>
-<div id="banner-container" class="w-100 d-flex justify-content-center align-items-center">
-  <img src="assets/images/banner.png" alt="banner" id="banner" class="w-50">
-</div>
-<div style="height: 100px; overflow: hidden">
+<app-navbar [theme]="'dark'"></app-navbar>
+<div style="height: 100px; overflow: hidden; margin-top: 6rem">
   <svg
     viewBox="0 0 500 150"
     preserveAspectRatio="none"
@@ -15,7 +11,16 @@
     ></path>
   </svg>
 </div>
-<app-villas-list [isInProfile]="false"></app-villas-list>
+<div class="bg-light-gray">
+  <div class="container">
+    <h1 class="">پنل کاربری</h1>
+    <button class="fs-6 my-5" type="submit" mat-raised-button color="primary">+ افزودن ویلای جدید</button>
+    <div>
+      <h3 class="">ویلاهای افزوده شده</h3>
+      <app-villas-list [villas]="currentUser.villas" [isInProfile]="true"></app-villas-list>
+    </div>
+  </div>
+</div>
 <div style="height: 100px; overflow: hidden">
   <svg
     viewBox="0 0 500 150"

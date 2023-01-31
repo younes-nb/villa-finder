@@ -17,6 +17,7 @@
       <mat-icon matSuffix>password</mat-icon>
       <mat-error *ngIf="loginForm.get('password')?.hasError('required')">وارد کردن رمز عبور الزامی می باشد.</mat-error>
     </mat-form-field>
+    <div><a id="has-account" routerLink="/register">حساب کاربری ندارید؟</a></div>
     <div class="d-flex justify-content-center mt-4">
       <button class="w-25" type="submit" mat-raised-button color="primary">ورود</button>
     </div>

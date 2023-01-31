@@ -4,8 +4,8 @@ import {VillasService} from "./shared/villas.service";
 import {VillaComponent} from "./villa/villa.component";
 import {RouterLink} from "@angular/router";
 import {MatPaginatorModule} from "@angular/material/paginator";
-import {PaginatorModule} from "./paginator/paginator.module";
-import {VillaCardComponent} from './villa-card/villa-card.component';
+import {PaginatorModule} from "./shared/paginator/paginator.module";
+import {VillaCardComponent} from './shared/villa-card/villa-card.component';
 import { VillasListComponent } from './shared/villas-list/villas-list.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import {NavbarModule} from "../core/navbar/navbar.module";
@@ -28,7 +28,7 @@ import {FooterModule} from "../core/footer/footer.module";
         GoogleMapsModule,
         FooterModule,
     ],
-  exports: [VillasListComponent]
+    exports: [VillasListComponent, VillaCardComponent]
 })
 export class VillasModule {
 }

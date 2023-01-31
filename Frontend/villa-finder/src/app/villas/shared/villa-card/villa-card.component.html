@@ -3,7 +3,7 @@
   <div class="card-body">
     <h5 class="card-title mb-4">{{villa.title}}</h5>
     <div class="mb-3 d-flex justify-content-between">
-      <h6 class="card-subtitle text-muted">{{villa.city}}</h6>
+      <h6 class="card-subtitle text-muted">{{villa.state}}، {{villa.city}}</h6>
       <h6 class="card-subtitle text-muted">{{numLatinToFa(villa.price)}} تومان</h6>
     </div>
     <p class="card-text">{{villa.details | slice:0:128}}...</p>

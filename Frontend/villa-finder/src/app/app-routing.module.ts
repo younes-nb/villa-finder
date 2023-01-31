@@ -4,12 +4,16 @@ import {HomeComponent} from "./core/home/home.component";
 import {VillaComponent} from "./villas/villa/villa.component";
 import {RegisterComponent} from "./core/auth/register/register.component";
 import {LoginComponent} from "./core/auth/login/login.component";
+import {ProfileComponent} from "./users/profile/profile.component";
+import {AuthGuardService} from "./core/auth/auth-guard.service";
 
 const routes: Routes = [
-  {path: "", component: HomeComponent},
-  {path: "villas/:id", component: VillaComponent},
+  {path: '', component: HomeComponent},
+  {path: 'villas/:id', component: VillaComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  // {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]}
+  {path: 'profile', component: ProfileComponent}
 ];
 
 @NgModule({
