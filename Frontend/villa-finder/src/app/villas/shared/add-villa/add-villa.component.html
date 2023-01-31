@@ -1,0 +1,83 @@
+<div id="auth-container" class="d-flex justify-content-center align-items-center flex-column h-100">
+  <form [formGroup]="addVillaForm"
+        (ngSubmit)="addVillaForm.valid && onSubmit()"
+        class="row gy-3 px-3 py-4 shadow rounded"
+        id="auth-form"
+  >
+    <h2 class="mb-4 text-center">افزودن ویلا</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>عنوان</mat-label>
+      <input matInput formControlName="title" name="title" type="text" required>
+      <mat-error *ngIf="addVillaForm.get('title')?.hasError('required')">وارد کردن عنوان الزامی می باشد.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="col-6" appearance="fill">
+      <mat-label>تعداد اتاق ها</mat-label>
+      <input matInput formControlName="bedrooms" name="bedrooms" type="number" min="1" required>
+      <mat-error *ngIf="addVillaForm.get('bedrooms')?.hasError('required')">وارد کردن تعداد اتاق ها الزامی می باشد.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="col-6" appearance="fill">
+      <mat-label>نرخ اجاره</mat-label>
+      <input matInput formControlName="price" name="price" type="number" min="1" required>
+      <mat-error *ngIf="addVillaForm.get('price')?.hasError('required')">وارد کردن نرخ اجاره الزامی می باشد.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="col-6" title="انتخاب استان">
+      <mat-label>استان</mat-label>
+      <input type="text"
+             aria-label="استان"
+             matInput
+             (change)="clearCityFilter()"
+             formControlName="state"
+             name="state"
+             [matAutocomplete]="autoState">
+      <mat-autocomplete #autoState="matAutocomplete" (optionSelected)="getCities($event)">
+        <mat-option *ngFor="let state of filteredStates | async" [value]="state">
+          {{state}}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error *ngIf="addVillaForm.get('state')?.hasError('required')">وارد کردن استان الزامی می باشد.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="col-6" title="انتخاب شهر">
+      <mat-label>شهر</mat-label>
+      <input type="text"
+             aria-label="شهر"
+             matInput
+             [readonly]="!isCityEditable"
+             formControlName="city"
+             name="city"
+             [matAutocomplete]="autoCity">
+      <mat-autocomplete #autoCity="matAutocomplete">
+        <mat-option *ngFor="let city of filteredCities | async" [value]="city">
+          {{city}}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error *ngIf="addVillaForm.get('city')?.hasError('required')">وارد کردن شهر الزامی می باشد.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="col-6" appearance="fill">
+      <mat-label>عرض جفرافیایی</mat-label>
+      <input matInput formControlName="latitude" name="latitude" type="number" required>
+      <mat-error *ngIf="addVillaForm.get('latitude')?.hasError('required')">وارد کردن عرض جفرافیایی الزامی می باشد.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="col-6" appearance="fill">
+      <mat-label>طول جفرافیایی</mat-label>
+      <input matInput formControlName="longitude" name="longitude" type="number" required>
+      <mat-error *ngIf="addVillaForm.get('longitude')?.hasError('required')">وارد کردن طول جفرافیایی الزامی می باشد.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>توضیحات</mat-label>
+      <textarea matInput formControlName="details" name="details" required></textarea>
+      <mat-error *ngIf="addVillaForm.get('details')?.hasError('required')">وارد کردن توضیحات الزامی می باشد.
+      </mat-error>
+    </mat-form-field>
+    <div class="d-flex justify-content-center mt-2">
+      <button class="fs-6" type="submit" mat-raised-button color="primary">ثبت اطلاعات آگهی</button>
+    </div>
+  </form>
+</div>
+

@@ -19,7 +19,7 @@ export class VillaComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => this.villaId = params['id']);
-    this.villasService.getVilla(this.villaId.toString()).subscribe(result => {
+    this.villasService.get(this.villaId.toString()).subscribe(result => {
       this.villa = result;
       this.coordinate = {lat: result.latitude, lng: result.longitude};
     });

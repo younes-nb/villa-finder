@@ -16,7 +16,7 @@ export class VillasListComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.villas.length === 0) {
-      this.villasService.getVillas().subscribe(result => {
+      this.villasService.getAll().subscribe(result => {
         this.villas = result;
         this.pageSlice = this.villas.slice(0, 9);
       });
@@ -25,7 +25,7 @@ export class VillasListComponent implements OnInit {
   }
 
   getVillas() {
-    this.villasService.getVillas().subscribe(result => {
+    this.villasService.getAll().subscribe(result => {
       this.villas = result;
     });
   }

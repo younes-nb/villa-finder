@@ -14,22 +14,29 @@ import {GoogleMapsModule} from "@angular/google-maps";
 import { VillaMapComponent } from './villa-map/villa-map.component';
 import {FooterModule} from "../core/footer/footer.module";
 import {MatButtonModule} from "@angular/material/button";
+import { AddVillaComponent } from './shared/add-villa/add-villa.component';
+import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 
 @NgModule({
-  declarations: [VillaComponent, VillaCardComponent, VillasListComponent, GalleryComponent, VillaMapComponent],
+  declarations: [VillaComponent, VillaCardComponent, VillasListComponent, GalleryComponent, VillaMapComponent, AddVillaComponent],
   providers: [VillasService],
-  imports: [
-    CommonModule,
-    MatPaginatorModule,
-    RouterLink,
-    PaginatorModule,
-    NavbarModule,
-    FontAwesomeModule,
-    GoogleMapsModule,
-    FooterModule,
-    MatButtonModule,
-  ],
+    imports: [
+        CommonModule,
+        MatPaginatorModule,
+        RouterLink,
+        PaginatorModule,
+        NavbarModule,
+        FontAwesomeModule,
+        GoogleMapsModule,
+        FooterModule,
+        MatButtonModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatAutocompleteModule,
+    ],
     exports: [VillasListComponent, VillaCardComponent]
 })
 export class VillasModule {
